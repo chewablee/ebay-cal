@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+<title>jQuery Mobile Web App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="themes/HappyHipster.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+</head>
+<body> 
+
+<div data-role="page" id="page" data-theme="a">
+	<div data-role="header">
+		<h1>eBay Calculator</h1>
+	</div>
+	<div data-role="content">
+		<form onsubmit="return false" oninput="o.value = (((a.valueAsNumber +0.3)/0.961)+(a.valueAsNumber/10)).toFixed(2) ; 
+		p.value = (((b.valueAsNumber *0.961)-0.3)-(b.valueAsNumber/10)-a.valueAsNumber).toFixed(2) ; 
+		q.value = ((p.value / b.valueAsNumber)*100).toFixed(2)">
+		<p>Selling Price <br>
+			<input name="b" id="b" type="number" step="0.01"></p>
+		<p>Cost
+		<input name="a" id="a" type="number" step="0.01" ></p> <br>
+  Cost + Fees<br>
+  <output name="o" for="a b"></output> <br> <br>
+  
+  Amount you earn after fees<br>
+  <output name="p"></output> &nbsp; &nbsp; or &nbsp; &nbsp;
+  <output name="q"></output>%
+  
+</form>
+		
+	</div>
+</div>
