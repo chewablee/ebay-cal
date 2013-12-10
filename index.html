@@ -10,6 +10,19 @@
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script>
+	var money= 0.3;
+    $(document).ready(function() {
+       
+        $("#checkbox1").click(function() {
+            if($('#checkbox1').is(':checked'))
+                money = 2;
+            else 
+                money = 0.3;
+
+        });
+    });
+</script>
 </head>
 <body> 
 
@@ -18,13 +31,17 @@
 		<h1>eBay Calculator</h1>
 	</div>
 	<div data-role="content">
-		<form onsubmit="return false" oninput="o.value = (((a.valueAsNumber +0.3)/0.961)+(a.valueAsNumber/10)).toFixed(2) ; 
-		p.value = (((b.valueAsNumber *0.961)-0.3)-(b.valueAsNumber/10)-a.valueAsNumber).toFixed(2) ; 
+		<form onsubmit="return false" oninput="o.value = (((a.valueAsNumber +money)/0.961)+(a.valueAsNumber/10)).toFixed(2) ; 
+		p.value = (((b.valueAsNumber *0.961)-money)-(b.valueAsNumber/10)-a.valueAsNumber).toFixed(2) ; 
 		q.value = ((p.value / b.valueAsNumber)*100).toFixed(2)">
 		<p>Selling Price <br>
 			<input name="b" id="b" type="number" step="0.01"></p>
 		<p>Cost
-		<input name="a" id="a" type="number" step="0.01" ></p> <br>
+		<input name="a" id="a" type="number" step="0.01" ></p>
+		<input id="checkbox1" name="myr" type="checkbox" value="2">
+                <label for="checkbox1">
+                    MYR
+                </label>
   Cost + Fees<br>
   <output name="o" for="a b"></output> <br> <br>
   
