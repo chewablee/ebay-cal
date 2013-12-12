@@ -31,19 +31,27 @@
 		<h1>eBay Calculator</h1>
 	</div>
 	<div data-role="content">
-		<form onsubmit="return false" oninput="o.value = (((a.valueAsNumber +money)/0.961)+(a.valueAsNumber/10)).toFixed(2) ; 
-		p.value = (((b.valueAsNumber *0.961)-money)-(b.valueAsNumber/10)-a.valueAsNumber).toFixed(2) ; 
-		q.value = ((p.value / b.valueAsNumber)*100).toFixed(2)">
-		<p>Selling Price <br>
-			<input name="b" id="b" type="number" step="0.01" width="100"></p>
-		<p>Cost
-		<input name="a" id="a" type="number" step="0.01" ></p>
-		<input id="checkbox1" name="myr" type="checkbox" value="2">
+		<form onsubmit="return false" oninput="o.value = ((b.valueAsNumber+posb.valueAsNumber) -((((b.valueAsNumber +posb.valueAsNumber)*.961)-money)-((b.valueAsNumber+posb.valueAsNumber)/10))).toFixed(2);
+		p.value = (((((b.valueAsNumber + posb.valueAsNumber) *0.961)-money)-((b.valueAsNumber + posb.valueAsNumber)/10))-(a.valueAsNumber +posa.valueAsNumber)).toFixed(2) ; 
+		q.value = ((p.value / b.valueAsNumber)*100).toFixed(2);
+		aa.value = (a.valueAsNumber+posa.valueAsNumber).toFixed(2);
+		bb.value = (b.valueAsNumber+posb.valueAsNumber).toFixed(2)">
+		<p>Selling Price &nbsp; &nbsp; &nbsp; &nbsp; Postage<br>
+			<input name="b" id="b" type="number" step="0.01" style="width: 80px; padding: 2px;" data-role="none"> &nbsp; &nbsp; &nbsp; &nbsp; 
+			<input name="posb" id="posb" type="number" value="0" step="0.01" style="width: 80px; padding: 2px;" data-role="none"> &nbsp; <output name="bb"></output>
+</p>
+		<p>Cost &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Postage<br>
+		<input name="a" id="a" type="number" step="0.01" style="width: 80px; padding: 2px;" data-role="none"> &nbsp; &nbsp; &nbsp; &nbsp; 
+		<input name="posa" id="posa" type="number" value="0" step="0.01" style="width: 80px; padding: 2px;" data-role="none"> &nbsp; <output name="aa"></output></p>
+		<br>
+		<input id="checkbox1" name="myr" type="checkbox" value="2" data-role="none">
                 <label for="checkbox1">
                     MYR
                 </label>
-  Cost + Fees<br>
-  <output name="o" for="a b"></output> <br> <br>
+                <br>
+                <br>
+  eBay + Paypal Fees<br>
+  <output name="o"></output><br> <br>
   
   Amount you earn after fees<br>
   <output name="p"></output> &nbsp; &nbsp; or &nbsp; &nbsp;
